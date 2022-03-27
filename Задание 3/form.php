@@ -1,7 +1,7 @@
 <?php
     header('Content-Type: text/html; charset=UTF-8');
     try{
-        $conn= new PDO('mysql:host=212.192.134.20;dbname=Ex3', "u47542", "7615565", array(PDO::ATTR_PERSISTENT => true))
+        $conn= new PDO('mysql:host=localhost;dbname=Ex3', "u47542", "7615565", array(PDO::ATTR_PERSISTENT => true))
     }catch (PDOException $e) {
         print "Error!: " . $e->getMessage();
         die();
