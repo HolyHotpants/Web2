@@ -1,7 +1,7 @@
 <?php
     header('Content-Type: text/html; charset=UTF-8');
 
-    $conn= new PDO('mysql:host=localhost;dbname=Ex3', "u47542", "7615565", array(PDO::ATTR_PERSISTENT => true))
+    $conn= new PDO('mysql:host=localhost;dbname=Ex3', "u47542", "7615565", array(PDO::ATTR_PERSISTENT => true));
     if(isset($_POST["name"]) && isset($_POST["email"]) && 
         isset($_POST["date"]) && (isset($_POST["sex_M"])||isset($_POST["sex_W"]))&&
         (isset($_POST["count_limbs_l2"])||isset($_POST["count_limbs_m2"]))&&
