@@ -9,19 +9,9 @@
     {
         if($_POST["check"])
         {
-            $Name=$_POST["name"];
-            $Email=$_POST["email"];
-            $DateBirth=$_POST["date"];
-            $Sex=$_POST["sex"];
-            $Count_limbs=$_POST["count_limbs"];
-            $Abilitys="";
-            $Superpowers=$_POST["superpowers"];
-            foreach($Superpowers as $power)
-                $Abilitys+=$power+", ";
-            $Abilitys-=", ";
-            $Biography=$_POST["biography"];
             $Insert_form=$conn->prepare("INSERT INTO Ex3 (Fio, Email, Date_birth, Sex, Count_limbs, Abilitys, Biography) 
-                                        VALUES (':name', ':email', :date, ':sex', ':count_limbs', ':superpowers', ':biography')");
+            VALUES (:name, :email, :date, :sex, :count_limbs, :superpowers, :biography)");
+
             $Insert_form->bindParam(':name',$Name);
             $Insert_form->bindParam(':email',$Email);
             $Insert_form->bindParam(':date',$DateBirth);
@@ -29,6 +19,20 @@
             $Insert_form->bindParam(':count_limbs',$Count_limbs);
             $Insert_form->bindParam(':superpowers',$Abilitys);
             $Insert_form->bindParam(':biography',$Biography);
+
+            $Name=$_POST["name"];
+            $Email=$_POST["email"];
+            $DateBirth=$_POST["date"];
+            $Sex=$_POST["sex"];
+            $count_limbs='>2';
+            $Count_limbs=$_POST["count_limbs"];
+            $Abilitys="";
+            $Superpowers=$_POST["superpowers"];
+            foreach($Superpowers as $power)
+                $Abilitys+=$power+", ";
+            $Abilitys-=", ";
+            $Biography=$_POST["biography"];
+
             $Insert_pform=$Insert_form->execute();
 
         }
