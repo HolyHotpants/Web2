@@ -12,13 +12,9 @@
     }
 
     
-    if(isset($_POST["name"]) && isset($_POST["email"]) && 
-        isset($_POST["date"]) && isset($_POST["sex"])&&
-        isset($_POST["count_limbs"])&&
-        isset($_POST["biography"])&&isset($_POST["superpowers"])) 
+    if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["date"]) ) 
     {
-        if($_POST["check"])
-        {
+
             $user='u47542';
             $pass='7615565';
             $conn= new PDO('mysql:host=localhost;dbname=u47542', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
@@ -51,9 +47,6 @@
                 print('Error : ' . $e->getMessage());
                 exit();
             }
-        }
-        else
-            print("Поставьте галочку!");
     }
     else
     {   
