@@ -13,8 +13,8 @@
 
     
     if(isset($_POST["name"]) && isset($_POST["email"]) && 
-        isset($_POST["date"]) && (isset($_POST["sex_M"])||isset($_POST["sex_W"]))&&
-        (isset($_POST["count_limbs_l2"])||isset($_POST["count_limbs_m2"]))&&
+        isset($_POST["date"]) && isset($_POST["sex"])&&
+        isset($_POST["count_limbs"])&&
         isset($_POST["biography"])&&isset($_POST["superpowers"])) 
     {
         if($_POST["check"])
