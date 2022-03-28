@@ -29,8 +29,16 @@
                 $Insert_form->bindParam(':Count_limbs',$Count_limbs);
                 $Insert_form->bindParam(':Abilitys',$Abilitys);
                 $Insert_form->bindParam(':Biography',$Biography);
-
-                $Name=$_POST["name"];
+                
+                $Name='Ivan';
+                $Email='email@mail.com';
+                $DateBirth='25.04.2002';
+                $Sex='M';
+                $Count_limbs='>2';
+                $Abilitys="All";
+          
+                $Biography='Its me';
+                /*$Name=$_POST["name"];
                 $Email=$_POST["email"];
                 $DateBirth=$_POST["date"];
                 $Sex=$_POST["sex"];
@@ -40,7 +48,7 @@
                 foreach($Superpowers as $power)
                     $Abilitys+=$power+", ";
                 $Abilitys-=", ";
-                $Biography=$_POST["biography"];
+                $Biography=$_POST["biography"];*/
                 $Insert_form->execute();
             }catch(PDOException $e){
                 print('Error : ' . $e->getMessage());
