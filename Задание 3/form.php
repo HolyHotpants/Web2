@@ -34,7 +34,6 @@
                 $Email=$_POST["email"];
                 $DateBirth=$_POST["date"];
                 $Sex=$_POST["sex"];
-                $count_limbs='>2';
                 $Count_limbs=$_POST["count_limbs"];
                 $Abilitys="";
                 $Superpowers=$_POST["superpowers"];
