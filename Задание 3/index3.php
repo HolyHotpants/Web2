@@ -12,7 +12,7 @@
 <body >
     <div class="wrapper">
       <div id="Myform">
-              <form action="form.php" method="POST">
+              <form action="" method="POST">
                 <label><a id="Форма"></a>
                   <em><strong>Имя:</strong></em><br />
                   <input name="name" value="Имя" />
