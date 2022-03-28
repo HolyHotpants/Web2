@@ -60,6 +60,6 @@
         print("Заполните все поля!");
     }
 
-    header("Location: index3.html");
+    header("Location: index3.php");
 ?>
 
