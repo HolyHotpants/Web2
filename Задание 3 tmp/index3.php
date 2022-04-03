@@ -39,31 +39,31 @@ $pass = '7615565';
 $db = new PDO('mysql:host=localhost;dbname=u47542', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
 try {
-  $stmt = $db->prepare("INSERT INTO site (name, mail, date, gender, limbs, powers, biography) 
-  VALUES (:name, :mail, :date, :gender, :limbs, :powers, :biography)");
+  $stmt = $db->prepare("INSERT INTO site (Fio, Email, Date_birth, Sex, Count_limbs, Abilitys, Biography) 
+  VALUES (:Fio, :Email, :Date_birth, :Sex, :Count_limbs, :Abilitys, :Biography)");
   
-  $stmt -> bindParam(':name', $name);
-  $stmt -> bindParam(':mail', $mail);
-  $stmt -> bindParam(':date', $date);
-  $stmt -> bindParam(':gender', $gender);
-  $stmt -> bindParam(':limbs', $limbs);
-  $stmt -> bindParam(':powers', $powers);
-  $stmt -> bindParam(':biography', $biography);
+  $stmt -> bindParam(':Fio', $Fio);
+  $stmt -> bindParam(':Email', $Email);
+  $stmt -> bindParam(':Date_birth', $Date_birth);
+  $stmt -> bindParam(':Sex', $Sex);
+  $stmt -> bindParam(':Count_limbs', $Count_limbs);
+  $stmt -> bindParam(':Abilitys', $Abilitys);
+  $stmt -> bindParam(':Biography', $Biography);
   
-  $name = $_POST['name'];
-  print($name.'<br />');
-  $mail = $_POST['mail'];
-  print($mail.'<br />');
-  $date = $_POST['date'];
-  print($date.'<br />');
-  $gender = $_POST['gender'];
-  print($gender.'<br />');
-  $limbs = $_POST['limbs'];
-  print($limbs.'<br />');
-  $powers = $_POST['powers'];
-  print($powers.'<br />');
-  $biography = $_POST['biography'];
-  print($biography.'<br />');
+  $Fio = $_POST['name'];
+  print($Fio.'<br />');
+  $Email = $_POST['mail'];
+  print($Email.'<br />');
+  $Date_birth = $_POST['date'];
+  print($Date_birth.'<br />');
+  $Sex = $_POST['gender'];
+  print($Sex.'<br />');
+  $Count_limbs = $_POST['limbs'];
+  print($Count_limbs.'<br />');
+  $Abilitys = $_POST['powers'];
+  print($Abilitys.'<br />');
+  $Biography = $_POST['biography'];
+  print($Biography.'<br />');
   $stmt->execute();
 }
 catch(PDOException $e){
