@@ -39,7 +39,7 @@ $pass = '7615565';
 $db = new PDO('mysql:host=localhost;dbname=u47542', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
 try {
-  $stmt = $db->prepare("INSERT INTO site (Fio, Email, Date_birth, Sex, Count_limbs, Abilitys, Biography) 
+  $stmt = $db->prepare("INSERT INTO Ex3 (Fio, Email, Date_birth, Sex, Count_limbs, Abilitys, Biography) 
   VALUES (:Fio, :Email, :Date_birth, :Sex, :Count_limbs, :Abilitys, :Biography)");
   
   $stmt -> bindParam(':Fio', $Fio);
