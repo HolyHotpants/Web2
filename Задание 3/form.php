@@ -1,8 +1,5 @@
 <?php
     header('Content-Type: text/html; charset=UTF-8');
-
- 
-
     
     if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["date"]))
     {
@@ -27,11 +24,7 @@
                 $Date_birth=$_POST["date"];
                 $Sex=$_POST["sex"];
                 $Count_limbs=$_POST["count_limbs"];
-                $Abilitys="";
-                $Superpowers=$_POST["superpowers"];
-                foreach($Superpowers as $power)
-                    $Abilitys .= $power.", ";
-                $Abilitys-=", ";
+                $Abilitys=$_POST["superpowers"];
                 $Biography=$_POST["biography"];
                 $Insert_form->execute();
             }catch(PDOException $e){
