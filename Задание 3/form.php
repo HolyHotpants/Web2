@@ -38,7 +38,7 @@
                 $Abilitys="";
                 $Superpowers=$_POST["superpowers"];
                 foreach($Superpowers as $power)
-                    $Abilitys+=$power+", ";
+                    $Abilitys .= $power.", ";
                 $Abilitys-=", ";
                 $Biography=$_POST["biography"];
                 $Insert_form->execute();
