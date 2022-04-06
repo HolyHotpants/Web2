@@ -1,11 +1,5 @@
 <?php
     header('Content-Type: text/html; charset=UTF-8');
-
-    if ($_SERVER['REQUEST_METHOD'] == 'GET')	
-    {
-      include('index3.html');
-      exit();
-    }
     
     if(!empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["date"]))
     {
@@ -43,5 +37,5 @@
         print("Заполните все поля!");
     }
 
-    header("Location: ?save=1");
+    header("Location: index3.html");
 ?>
