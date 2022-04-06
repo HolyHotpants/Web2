@@ -37,5 +37,5 @@
         print("Заполните все поля!");
     }
 
-    header("Location: index3.html");
+    header("Location: ?save=1");
 ?>
