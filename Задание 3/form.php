@@ -3,15 +3,11 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET')	
     {
-      if (!empty($_GET['save']))
-     {
-        print('Спасибо, результаты сохранены.');
-      }
       include('index3.html');
       exit();
     }
     
-    if(isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["date"]))
+    if(!empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["date"]))
     {
 
             $user='u47542';
