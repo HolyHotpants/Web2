@@ -11,7 +11,7 @@
       // Выдаем сообщение об успешном сохранении.
       if (!empty($_COOKIE['save'])) {
         // Удаляем куку, указывая время устаревания в прошлом.
-        setcookie('save', '', 100000);
+        setcookie('save', '', -100000);
         // Если есть параметр save, то выводим сообщение пользователю.
         $messages[] = 'Спасибо, результаты сохранены.';
       }
@@ -28,52 +28,51 @@
       $errors['checkbox'] = !empty($_COOKIE['checkbox_error']);
     
       // Выдаем сообщения об ошибках.
-      if ($errors['fio']) {
+      if ($errors['name']) {
         // Удаляем куку, указывая время устаревания в прошлом.
-        setcookie('fio_error', '', 100000);
+        setcookie('name_error', '', -100000);
         // Выводим сообщение.
         $messages[] = '<div class="error">Заполните имя.</div>';
       }
       if ($errors['email']) {
-        setcookie('email_error', '', 100000);
+        setcookie('email_error', '', -100000);
         $messages[] = '<div class="error">Заполните почту.</div>';
       }
       if ($errors['date']) {
-        setcookie('date_error', '', 100000);
+        setcookie('date_error', '', -100000);
         $messages[] = '<div class="error">Выберите дату.</div>';
       }
       if ($errors['sex']) {
-        setcookie('sex_error', '', 100000);
+        setcookie('sex_error', '', -100000);
         $messages[] = '<div class="error">Выберите ваш пол.</div>';
       }
       if ($errors['count_limbs']) {
-        setcookie('count_limbs_error', '', 100000);
+        setcookie('count_limbs_error', '', -100000);
         $messages[] = '<div class="error">Выберите количество ваших конечностей.</div>';
       }
       if ($errors['biography']) {
-        setcookie('biography_error', '', 100000);
+        setcookie('biography_error', '', -100000);
         $messages[] = '<div class="error">Напишите что-нибудь о себе.</div>';
       }
       if ($errors['superpowers']) {
-        setcookie('superpowers_error', '', 100000);
+        setcookie('superpowers_error', '', -100000);
         $messages[] = '<div class="error">Выберите суперсилу.</div>';
       }
       if ($errors['checkbox']) {
-        setcookie('checbox_error', '', 100000);
+        setcookie('checbox_error', '', -100000);
         $messages[] = '<div class="error">Поставьте галочку.</div>';
       }
     
       // Складываем предыдущие значения полей в массив, если есть.
       $values = array();
-      $values['fio'] = empty($_COOKIE['fio_value']) ? '' : $_COOKIE['fio_value'];
-
+      $values['name'] = empty($_COOKIE['name_value']) ? '' : $_COOKIE['name_value'];
       $values['email'] = empty($_COOKIE['email_value']) ? '' : $_COOKIE['email_value'];
       $values['date'] = empty($_COOKIE['date_value']) ? '' : $_COOKIE['date_value'];
       $values['sex'] = empty($_COOKIE['sex_value']) ? '' : $_COOKIE['sex_value'];
       $values['count_limbs'] = empty($_COOKIE['count_limbs_value']) ? '' : $_COOKIE['count_limbs_value'];
       $values['biography'] = empty($_COOKIE['biography_value']) ? '' : $_COOKIE['biography_value'];
       $values['superpowers'] = empty($_COOKIE['superpowers_value']) ? '' : $_COOKIE['superpowers_value'];
-
+      $values['checkbox_value'] = empty($_COOKIE['checkbox_value']) ? '' : $_COOKIE['checkbox_value'];
       // Включаем содержимое файла form.php.
       // В нем будут доступны переменные $messages, $errors и $values для вывода 
       // сообщений, полей с ранее заполненными данными и признаками ошибок.
@@ -83,14 +82,14 @@
     else {
       // Проверяем ошибки.
       $errors = FALSE;
-      if (empty($_POST['fio'])) {
+      if (empty($_POST['name'])) {
         // Выдаем куку на день с флажком об ошибке в поле fio.
-        setcookie('fio_error', '1', time() + 24 * 60 * 60);
+        setcookie('name_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
       }
       else {
         // Сохраняем ранее введенное в форму значение на месяц.
-        setcookie('fio_value', $_POST['fio'], time() + 30 * 24 * 60 * 60);
+        setcookie('name_value', $_POST['name'], time() + 30 * 24 * 60 * 60);
       }
 
       if (empty($_POST['email'])) {
@@ -155,7 +154,7 @@
       }
       else {
         // Удаляем Cookies с признаками ошибок.
-        setcookie('fio_error', '', -100000);
+        setcookie('name_error', '', -100000);
         setcookie('email_error', '', -100000);
         setcookie('date_error', '', -100000);
         setcookie('sex_error', '', -100000);
