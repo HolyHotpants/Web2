@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$Date_birth = intval($_POST["year"]);
 	$Sex = $_POST["gender"];
 	$Count_limbs = intval($_POST["numlimbs"]);
-	$Abilitys=$_POST["superpowers"];
+	$Abilitys=$_POST["super-powers"];
 	$Biography = $_POST["biography"];
 
 	$serverName = 'localhost';
