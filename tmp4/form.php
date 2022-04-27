@@ -10,11 +10,11 @@
 
 <body>
 	<div class="form">
-		<div class="form__header">
+		/*<div class="form__header">
 			<?php
 			echo $fheader;
 			?>
-		</div>
+		</div>*/
 		<form class="form__body" action="" method="post">
 			<div class="form__item">
 				<label class="form__label">
