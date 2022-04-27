@@ -113,15 +113,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	$biography = $_POST["biography"];
 
 	$serverName = 'localhost';
-	$user = "u47565";
-	$pass = "7165854";
+	$user = "u47542";
+	$pass = "7615565";
 	$dbName = $user;
 
 	$db = new PDO("mysql:host=$serverName;dbname=$dbName", $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
 	$lastId = null;
 	try {
-		$stmt = $db->prepare("INSERT INTO user2 (name, email, date, gender, limbs, biography) VALUES (:name, :email, :date, :gender, :limbs, :biography)");
+		$stmt = $db->prepare("INSERT INTO user (name, email, date, gender, limbs, biography) VALUES (:name, :email, :date, :gender, :limbs, :biography)");
 		$stmt->execute(array('name' => $name, 'email' => $email, 'date' => $year, 'gender' => $gender, 'limbs' => $limbs, 'biography' => $biography));
 		$lastId = $db->lastInsertId();
 	} catch (PDOException $e) {
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			exit();
 		}
 		foreach ($superPowers as $value) {
-			$stmt = $db->prepare("INSERT INTO user_power2 (id, power) VALUES (:id, :power)");
+			$stmt = $db->prepare("INSERT INTO user_power (id, power) VALUES (:id, :power)");
 			$stmt->execute(array('id' => $lastId, 'power' => intval($value)));
 		}
 	} catch (PDOException $e) {
