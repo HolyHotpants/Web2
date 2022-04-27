@@ -15,6 +15,7 @@
 			echo $fheader;
 			?>
 		</div>*/
+		<div id="Myform">
 		<form class="form__body" action="" method="post">
 			<div class="form__item">
 				<label class="form__label">
@@ -111,6 +112,7 @@
 				</label>
 			</div>
 		</form>
+		</div>
 	</div>
 </body>
 
