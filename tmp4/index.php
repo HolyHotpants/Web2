@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			$requestError = true;
 		}
 
-		/*if (!isset($_POST["super-powers"])) {
+		if (!isset($_POST["super-powers"])) {
 			$errors['super-powers'] = "Выберите хотя бы одну суперспособность!";
 		} else {
 			foreach ($_POST["super-powers"] as $value) {
@@ -66,14 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 					break;
 				}
 			}
-		}*/
-        if (!isset($_POST["super-powers"])) {
-			$errors['super-powers'] = "Выберите хотя бы одну суперспособность!";
-		} elseif (intval($_POST["super-powers") < 1 || 3 < intval($_POST["super-powers")) 
-				{
-					$requestError = true;
-					break;
-				}
+		}
 
 		if (empty($_POST["biography"])) {
 			$errors['biography'] = "Расскажите что-нибудь о себе!";
@@ -96,7 +89,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if (isset($errors['super-powers'])) {
 			setcookie('super-powers-error', $errors['super-powers'], time() + 60 * 60 * 24);
 		} else {
-				setcookie("super-powers", $_POST['super-powers'],  time() + 60 * 60 * 24 * 365);
+			$supPowers = ['1' => '0', '2' => '0', '3' => 0];
+			foreach ($_POST['super-powers'] as $key => $value) {
+				$supPowers[$value] = '1';
+			}
+			foreach ($supPowers as $key => $value) {
+				setcookie("super-powers-$key", $value,  time() + 60 * 60 * 24 * 365);
+			}
 		}
 	}
 
@@ -105,43 +104,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		exit();
 	}
 
-	$Fio = $_POST["name"];
-	$Email = $_POST["email"];
-	$Date_birth = intval($_POST["year"]);
-	$Sex = $_POST["gender"];
-	$Count_limbs = intval($_POST["numlimbs"]);
-	$Abilitys=$_POST["super-powers"];
-	$Biography = $_POST["biography"];
+	$name = $_POST["name"];
+	$email = $_POST["email"];
+	$year = intval($_POST["year"]);
+	$gender = $_POST["gender"];
+	$limbs = intval($_POST["numlimbs"]);
+	$superPowers = $_POST["super-powers"];
+	$biography = $_POST["biography"];
 
 	$serverName = 'localhost';
-	$user = "u47542";
-	$pass = "7655565";
+	$user = "u47565";
+	$pass = "7165854";
 	$dbName = $user;
 
 	$db = new PDO("mysql:host=$serverName;dbname=$dbName", $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
 	$lastId = null;
 	try {
-		$stmt = $db->prepare("INSERT INTO Ex3 (Fio, Email, Date_birth, Sex, Count_limbs, Abilitys, Biography) VALUES (:Fio, :Email, :Date_birth, :Sex, :Count_limbs, :Abilitys, :Biography)");
-		$stmt->execute(array('Fio' => $Fio, 'Email' => $Email, 'Date_birth' => $Date_birth, 'Sex' => $Sex, 'Count_limbs' => $Count_limbs, 'Abilitys'=>$Abilitys, 'Biography' => $Biography));
+		$stmt = $db->prepare("INSERT INTO user (name, email, date, gender, limbs, biography) VALUES (:name, :email, :date, :gender, :limbs, :biography)");
+		$stmt->execute(array('name' => $name, 'email' => $email, 'date' => $year, 'gender' => $gender, 'limbs' => $limbs, 'biography' => $biography));
 		$lastId = $db->lastInsertId();
 	} catch (PDOException $e) {
 		print('Error : ' . $e->getMessage());
 		exit();
 	}
 
-	/*try {
+	try {
 		if ($lastId === null) {
 			exit();
 		}
 		foreach ($superPowers as $value) {
-			$stmt = $db->prepare("INSERT INTO Ex3 (Abilitys) VALUES (:id, :power)");
+			$stmt = $db->prepare("INSERT INTO user_power (id, power) VALUES (:id, :power)");
 			$stmt->execute(array('id' => $lastId, 'power' => intval($value)));
 		}
 	} catch (PDOException $e) {
 		print('Error : ' . $e->getMessage());
 		exit();
-	}*/
+	}
 	$db = null;
 
 	setcookie("save", '1', time() + 60 * 60 * 24);
