@@ -80,7 +80,7 @@ else {
   $l=$_POST['login'];
   $p=$_POST['pass'];
   $uid=0;
-  $error=TRUE;
+  $error=FALSE;
   $user = 'u47542';
   $pass = '7615565';
   $db1 = new PDO('mysql:host=localhost;dbname=u47542', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
@@ -92,7 +92,7 @@ else {
       $username=$chk->fetchALL();
       if(password_verify($p,$username[0]['pass'])){
         $uid=$username[0]['id'];
-        $error=TRUE;
+        $error=FALSE;
       }
     }
     catch(PDOException $e){
