@@ -29,6 +29,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   header('Location: index.php');
   }else{
 ?>
+<style>
+  body {
+    display: flex;
+    background-color: #DDA0DD;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper{
+    display: flex;
+    background-color: #bbffc3;
+    width: 310px;
+    height: 610px;
+    justify-content: center;
+    align-items: center;
+}
+#Myform{
+    background-color: #90EE90;
+    width: 300px;
+    height: 600px;
+    margin:5px
+}
+</style>
+<body>
 <div class="wrapper">
   <div id=Myform>
     <form action="" method="post">
@@ -44,7 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     </form>
   </div>
 </div>
+</body>
 <?php
+
   }
 }
 // Иначе, если запрос был методом POST, т.е. нужно сделать авторизацию с записью логина в сессию.
