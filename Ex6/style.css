@@ -8,6 +8,8 @@ body{
     padding-left: 10px;
 	background-color: #90EE90;
 	border-radius: 10px;
+  width: 300px;
+  height: 600px;
 }
 input[type=text] {
   padding:8px;
