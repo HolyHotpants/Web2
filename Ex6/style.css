@@ -1,5 +1,5 @@
 body{
-	display: flex;
+  display: flex;
   background-color: #DDA0DD;
   justify-content: center;
   align-items: center;
@@ -7,6 +7,7 @@ body{
 .wrapper{
   display: flex;
   background-color: #bbffc3;
+  border-radius: 10px;
   width: auto;
   height: auto;
   justify-content: center;
@@ -14,8 +15,8 @@ body{
 }
 #form{
   padding-left: 10px;
-	background-color: #90EE90;
-	border-radius: 10px;
+  background-color: #90EE90;
+  border-radius: 10px;
   width: auto;
   height: auto;
   margin:5px
