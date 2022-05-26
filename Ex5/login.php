@@ -80,7 +80,7 @@ else {
   $l=$_POST['login'];
   $p=$_POST['pass'];
   $uid=0;
-  $error=FALSE;
+  $error=TRUE;
   $user = 'u47542';
   $pass = '7615565';
   $db1 = new PDO('mysql:host=localhost;dbname=u47542', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
