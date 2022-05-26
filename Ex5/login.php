@@ -39,16 +39,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 .wrapper{
     display: flex;
     background-color: #bbffc3;
-    width: 310px;
-    height: 610px;
+    width: 210;
+    height: 120px;
     justify-content: center;
     align-items: center;
 }
 #Myform{
     background-color: #90EE90;
-    width: 300px;
-    height: 600px;
-    margin:5px
+    width: 200px;
+    height: 105px;
+    margin: 5px;
 }
 </style>
 <body>
