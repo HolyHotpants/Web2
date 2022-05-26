@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       .wrapper{
         display: flex;
         background-color: #bbffc3;
+	border-radius: 10px;
         width: auto;
         height: auto;
         justify-content: center;
