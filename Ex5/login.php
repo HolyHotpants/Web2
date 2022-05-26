@@ -92,7 +92,7 @@ else {
       $username=$chk->fetchALL();
       if(password_verify($p,$username[0]['pass'])){
         $uid=$username[0]['id'];
-        $error=FALSE;
+        $error=TRUE;
       }
     }
     catch(PDOException $e){
