@@ -87,19 +87,20 @@ if (!empty($messages)) {
         ?>
         <input type="submit" value="Отправить"/>
       </form>
+      <?php
+        if(empty($_SESSION['login'])){
+        echo'
+        <div class="login">
+          <p>Если у вас есть аккаунт, вы можете <a href="login.php">войти</a></p>
+        </div>';
+        }
+        else{
+          echo '
+          <div class="logout">
+            <a href="logout.php" name="logout">Выйти</a>
+          </div>';
+      } ?>
     </div>
   </div>
-  <?php
-  if(empty($_SESSION['login'])){
-   echo'
-   <div class="login">
-    <p>Если у вас есть аккаунт, вы можете <a href="login.php">войти</a></p>
-   </div>';
-  }
-  else{
-    echo '
-    <div class="logout">
-      <a href="logout.php" name="logout">Выйти</a>
-    </div>';
-  } ?>
+  
 </body>
